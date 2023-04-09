@@ -15,7 +15,7 @@ const PostForm = () => {
     event.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post(`/posts`, {
+      const response = await axios.post(`https://backend-2k1s.onrender.com/posts`, {
         name,
         email,
         content,

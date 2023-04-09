@@ -27,7 +27,7 @@ export const UserList = () => {
  
   useEffect(() => {
     axios
-      .get("/users")
+      .get("https://backend-2k1s.onrender.com/users")
       .then((response) => {
         setUsers(response.data);
         setTotalUsers(response.data.length);
@@ -45,7 +45,7 @@ export const UserList = () => {
     event.preventDefault();
     try {
       const response = await axios.put(
-        `/users/${selectedUser._id}`,
+        `https://backend-2k1s.onrender.com/users/${selectedUser._id}`,
         updatedUser
       );
       const updatedUserData = response.data;
@@ -68,7 +68,7 @@ export const UserList = () => {
 
   const handleDelete = async (user) => {
     try {
-      await axios.delete(`/users/${user._id}`);
+      await axios.delete(`https://backend-2k1s.onrender.com/users/${user._id}`);
       setUsers((prevUsers) => prevUsers.filter((u) => u._id !== user._id));
       setShowSuccessMessage(true);
       setShowErrorMessage(false);

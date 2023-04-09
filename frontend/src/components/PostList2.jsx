@@ -15,7 +15,7 @@ const PostList2 = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("/posts");
+        const response = await axios.get("https://backend-2k1s.onrender.com/posts");
         setPosts(response.data);
       } catch (err) {
         console.error(err);
@@ -26,7 +26,7 @@ const PostList2 = () => {
 
   const handleLikeClick = async (id) => {
     try {
-      const response = await axios.post(`/posts/${id}/like`);
+      const response = await axios.post(`https://backend-2k1s.onrender.com/posts/${id}/like`);
       const updatedPost = response.data;
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
@@ -40,7 +40,7 @@ const PostList2 = () => {
 
   const handleUnlikeClick = async (id) => {
     try {
-      const response = await axios.post(`/posts/${id}/unlike`);
+      const response = await axios.post(`https://backend-2k1s.onrender.com/posts/${id}/unlike`);
       const updatedPost = response.data;
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
@@ -93,7 +93,7 @@ const PostList2 = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`/posts/${selectedPost._id}`, editedPost);
+      const response = await axios.put(`https://backend-2k1s.onrender.com/posts/${selectedPost._id}`, editedPost);
       const updatedPost = response.data;
       setPosts((prevPosts) =>
         prevPosts.map((post) =>

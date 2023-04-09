@@ -15,7 +15,7 @@ const PostList = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("/posts");
+        const response = await axios.get("https://backend-2k1s.onrender.com/posts");
         setPosts(response.data);
       } catch (err) {
         console.error(err);
@@ -72,7 +72,7 @@ const PostList = () => {
     e.preventDefault();
     try {
       // Check if user exists
-      const userResponse = await axios.get(`/users?email=${editedPost.email}`);
+      const userResponse = await axios.get(`https://backend-2k1s.onrender.com/users?email=${editedPost.email}`);
       const users = userResponse.data;
       if (users.length === 0) {
         console.error("User does not exist");
@@ -103,7 +103,7 @@ const PostList = () => {
  
   const handleDeleteClick = async (id) => {
     try {
-      await axios.delete(`/posts/${id}`);
+      await axios.delete(`https://backend-2k1s.onrender.com/posts/${id}`);
       setPosts((prevPosts) => prevPosts.filter((post) => post._id !== id));
     } catch (err) {
       console.error(err);

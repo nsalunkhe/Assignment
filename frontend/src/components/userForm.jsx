@@ -17,7 +17,7 @@ const UserForm = () => {
     event.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post(`/users`, {
+      const response = await axios.post(`https://backend-2k1s.onrender.com/users`, {
         name,
         email,
         bio,
@@ -29,7 +29,10 @@ const UserForm = () => {
       setName("");
       setEmail("");
       setBio("");
-      navigate("/createPost"); // Navigate to the /createPost route
+      setTimeout(()=>{
+        alert("User created successfully!")
+        navigate("/createPost");
+      },1000)
     } catch (error) {
       console.error(error);
       setIsLoading(false);
