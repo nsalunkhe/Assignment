@@ -80,7 +80,7 @@ const PostList = () => {
       }
   
       // User exists, update post
-      const response = await axios.put(`/posts/${selectedPost._id}`, editedPost);
+      const response = await axios.put(`https://backend-2k1s.onrender.com/posts/${selectedPost._id}`, editedPost);
       const updatedPost = response.data;
       setPosts((prevPosts) =>
         prevPosts.map((post) =>

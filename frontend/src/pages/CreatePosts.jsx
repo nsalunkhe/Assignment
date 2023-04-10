@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Button, Form, Container, Row, Col, Alert } from "react-bootstrap";
 import axios from "axios";
 import PostList from "../components/PostList";
 import Header from "../components/Navbar";
-// import Header2 from "../components/Header2";
 
 const PostForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,13 +22,11 @@ const PostForm = () => {
       });
       console.log(response.data);
       setIsLoading(false);
-      setTimeout(()=>{
-        window.location.reload()
-        window.alert("Post created successfully");
-      },1000)
       setEmail("");
       setName("");
       setContent("");
+      setShowAlert(true);
+      //  window.location.reload()
     } catch (error) {
       console.error(error);
       setIsLoading(false);
@@ -90,6 +88,11 @@ const PostForm = () => {
                 </Button>
               </div>
             </Form>
+            {showAlert && (
+              <Alert variant="success" onClose={() => setShowAlert(false)} dismissible>
+                Post created successfully you can see the created post at Home page !
+              </Alert>
+            )}
           </Col>
         </Row>
       </Container>

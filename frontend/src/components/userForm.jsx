@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Button, Form, Container, Row, Col, Alert } from "react-bootstrap";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ const UserForm = () => {
   const [success, setSuccess] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,10 +29,10 @@ const UserForm = () => {
       setName("");
       setEmail("");
       setBio("");
-      setTimeout(()=>{
-        alert("User created successfully!")
-        navigate("/createPost");
-      },1000)
+      // setTimeout(()=>{
+      //   alert("User created successfully!")
+      //   navigate("/createPost");
+      // },1000)
     } catch (error) {
       console.error(error);
       setIsLoading(false);
